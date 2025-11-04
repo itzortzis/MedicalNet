@@ -206,13 +206,15 @@ class ResNet(nn.Module):
         x = self.bn1(x)
         x = self.relu(x)
         x = self.maxpool(x)
+        feats = x
+        feats.retain_grad()
         x = self.layer1(x)
         x = self.layer2(x)
         x = self.layer3(x)
         x = self.layer4(x)
         x = self.conv_seg(x)
 
-        return x
+        return feats
 
 def resnet10(**kwargs):
     """Constructs a ResNet-18 model.
