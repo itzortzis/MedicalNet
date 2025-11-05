@@ -1,6 +1,6 @@
 import torch
 from torch import nn
-from models import resnet
+from film.medical_net.models import resnet
 
 
 def generate_model(opt):
